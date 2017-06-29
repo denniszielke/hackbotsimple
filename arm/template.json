@@ -22,7 +22,21 @@
             "metadata": {
                 "description": "The URL for the GitHub repository that contains the project to deploy."
             }
-        }        
+        },
+        "bot_app_id": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Get a bot id and password from https://dev.botframework.com/"
+            }
+        },
+        "bot_app_password": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Get a bot id and password from https://dev.botframework.com/"
+            }
+        }         
     },
     "variables": {
         "databaseAccounts_botdb_name": "[concat(parameters('deployment_name'), 'botdb')]",
@@ -42,12 +56,12 @@
             "comments": "Generalized from resource:",
             "type": "Microsoft.CognitiveServices/accounts",
             "sku": {
-                "name": "S1"
+                "name": "F0"
             },
             "kind": "LUIS",
             "name": "[variables('accounts_luis_name')]",
             "apiVersion": "2016-02-01-preview",
-            "location": "westus",
+            "location": "westeurope",
             "scale": null,
             "properties": {},
             "dependsOn": []
@@ -215,24 +229,44 @@
                                 "Name": "INSTRUMENTATIONKEY"
                             },
                             {
+                                "Value": "[reference(concat('microsoft.insights/components/', variables('components_botinsights_name'))).InstrumentationKey]",
+                                "Name": "APPINSIGHTS_INSTRUMENTATIONKEY"
+                            },  
+                            {
                                 "Value": "6.9.1",
                                 "Name": "WEBSITE_NODE_DEFAULT_VERSION"
                             },
                             {
                                 "Value": "[reference(concat('microsoft.documentDb/databaseAccounts/', variables('databaseAccounts_botdb_name'))).documentEndpoint]",
-                                "Name": "ENDPOINT"
+                                "Name": "MONGO_URL"
                             },
                             {
                                 "Value": "[listKeys(resourceId('microsoft.documentDb/databaseAccounts', variables('databaseAccounts_botdb_name')), '2015-04-08').primaryMasterKey]",
-                                "Name": "AUTHKEY"
+                                "Name": "MONGO_KEY"
                             },
                             {
                                 "Value": "[variables('search_app_name')]",
-                                "Name": "SEARCHAPP"
+                                "Name": "SEARCH_NAME"
                             },
                             {
                                 "Value": "[listAdminKeys(resourceId('Microsoft.Search/searchServices', variables('search_app_name')), '2015-08-19').PrimaryKey]",
-                                "Name": "SEARCHKEY"
+                                "Name": "SEARCH_KEY"
+                            },
+                            {
+                                "Value": "[listKeys(resourceId('Microsoft.CognitiveServices/accounts', variables('accounts_luis_name')), '2016-02-01-preview').key1]",
+                                "Name": "LUIS_KEY"
+                            },
+                            {
+                                "Value": "https://westeurope.api.cognitive.microsoft.com/luis/v2.0",
+                                "Name": "LUIS_URL"
+                            },
+                            {
+                                "Value": "[parameters('bot_app_id')]",
+                                "Name": "MICROSOFT_APP_ID"
+                            },
+                            {
+                                "Value": "[parameters('bot_app_password')]",
+                                "Name": "MICROSOFT_APP_PASSWORD"
                             }
                         ]
                     }
@@ -342,8 +376,16 @@
                                 "Name": "LUIS_KEY"
                             },
                             {
-                                "Value": "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0",
+                                "Value": "https://westeurope.api.cognitive.microsoft.com/luis/v2.0",
                                 "Name": "LUIS_URL"
+                            },
+                            {
+                                "Value": "[parameters('bot_app_id')]",
+                                "Name": "MICROSOFT_APP_ID"
+                            },
+                            {
+                                "Value": "[parameters('bot_app_password')]",
+                                "Name": "MICROSOFT_APP_PASSWORD"
                             }
                         ]
                     }
