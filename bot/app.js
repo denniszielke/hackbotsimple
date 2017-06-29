@@ -10,6 +10,9 @@ const dialogs = {};
 dialogs.helpExplorer = require('./dialogs/helpExplorer.js');
 dialogs.adamsExplorer = require('./dialogs/adamsExplorer.js');
 
+var appInsights = require('applicationinsights');
+appInsights.setup(config.instrumentationKey).setAutoCollectRequests(true).start();
+
 //If testing via the emulator, no need for appId and appPassword. If publishing, enter appId and appPassword here 
 const connector = new builder.ChatConnector({
     appId: config.appId,
@@ -49,6 +52,9 @@ bot.use(builder.Middleware.dialogVersion({ version: 0.2, resetCommand: /^reset/i
 // Setup Restify Server
 const server = restify.createServer();
 server.post('/api/messages', connector.listen());
+
+var insightsClient = appInsights.getClient(config.instrumentationKey);
+insightsClient.trackEvent('bot-initializing');
 
 server.listen(3978, () => {
     console.log('%s listening to %s', server.name, server.url);

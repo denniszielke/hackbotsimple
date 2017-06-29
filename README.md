@@ -7,7 +7,7 @@ author: denniszielke
 # Simple bot on azure with NodeJs
 This sample shows you how to deploy a simple bot hosted on Azure Websites. 
 
-![Simple Bot Hackathon](./media/image1.png)
+![Simple Bot Hackathon](./images/architecture.png)
 
 For a complete end-to-end walk-through of creating this application, please refer to the [Bot Builder SDK for Node.js](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-overview)
 
@@ -20,5 +20,6 @@ For a complete end-to-end walk-through of creating this application, please refe
 
 It will deploy the following resources
 - Azure Web App
+- Application Insights
 - Code from github to the WebApp
 
