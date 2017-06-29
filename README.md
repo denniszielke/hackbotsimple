@@ -25,7 +25,10 @@ It will deploy the following resources
 
 ## Prepare your blank azure vm for development
 
-1. Open Internet Explorer (does not work on Chrome) and paste the following URL: a. http://boxstarter.org/package/nr/url?
+1. Open Internet Explorer (does not work on Chrome) and paste the following URL: 
+
+http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/denniszielke/hackbotsimple/master/scboxstarter.txt
+
 2. Click Run on the security warning. 
 3. Click Run again when prompted. 
 4. This will take about 5 minutes and does the setup of prerequired software: Visual Studio Code, NodeJs, Git, Google Chrome, Fiddler4
