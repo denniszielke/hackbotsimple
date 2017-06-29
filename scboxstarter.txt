@@ -1,0 +1,12 @@
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+
+cinst fiddler4 --ignorechecksums
+cinst googlechrome --ignorechecksums
+cinst visualstudiocode --ignorechecksums
+cinst nodejs.install --ignorechecksums
+cinst git.install --ignorechecksums
+
+Push-Location ([Environment]::GetFolderPath("MyDocuments"))
+mkdir hackathon
+
+Pop-Location
