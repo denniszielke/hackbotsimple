@@ -301,15 +301,15 @@
                                 "Name": "FUNCTIONS_EXTENSION_VERSION"
                             },
                             {
-                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_socialfunc_name')), '2015-05-01-preview').key1,';')]",
+                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_botfunc_name')), '2015-05-01-preview').key1,';')]",
                                 "Name": "AzureWebJobsStorage"
                             },
                             {
-                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_socialfunc_name')), '2015-05-01-preview').key1,';')]",
+                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_botfunc_name')), '2015-05-01-preview').key1,';')]",
                                 "Name": "AzureWebJobsDashboard"
                             },
                             {
-                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_socialfunc_name')), '2015-05-01-preview').key1,';')]",
+                                "Value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccounts_botfunc_name'), ';AccountKey=',listkeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccounts_botfunc_name')), '2015-05-01-preview').key1,';')]",
                                 "Name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING"
                             },
                             {
