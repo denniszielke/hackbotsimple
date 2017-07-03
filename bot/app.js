@@ -56,6 +56,6 @@ server.post('/api/messages', connector.listen());
 var insightsClient = appInsights.getClient(config.instrumentationKey);
 insightsClient.trackEvent('bot-initializing');
 
-server.listen(3978, () => {
+server.listen(process.env.port || process.env.PORT || 3978, () => {
     console.log('%s listening to %s', server.name, server.url);
 });
