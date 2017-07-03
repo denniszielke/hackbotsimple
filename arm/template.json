@@ -125,7 +125,7 @@
                     "size": "B1",
                     "family": "B",
                     "capacity": 1
-                },
+            },
             "kind": "app",
             "name": "[variables('serverfarms_webplan_name')]",
             "apiVersion": "2015-08-01",
