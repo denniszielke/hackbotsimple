@@ -212,6 +212,10 @@
                             {
                                 "Value": "[parameters('bot_app_password')]",
                                 "Name": "MICROSOFT_APP_PASSWORD"
+                            },
+                            {
+                                "Value": "[concat('https://', variables('sites_botfunc_name'),'.azurewebsites.net/')]",
+                                "Name": "FUNCTION_URL"
                             }
                         ]
                     }
@@ -341,6 +345,10 @@
         "MONGO_KEY" : {
             "type" : "string",
             "value": "[listKeys(resourceId('microsoft.documentDb/databaseAccounts', variables('databaseAccounts_botdb_name')), '2015-04-08').primaryMasterKey]"
+        },
+        "FUNCTION_URL" : {
+            "type" : "string",
+            "value": "[concat('https://', variables('sites_botfunc_name'),'.azurewebsites.net/')]"
         }
     }
 }

@@ -23,10 +23,6 @@ It will deploy the following resources
 - Application Insights
 - Code from github to the WebApp
 
-## Register your bot with Microsoft
-Go to https://dev.botframework.com/bots and create a new bot.
-Give it a name and enter the application insights values from the initial resource deployment
-
 ## Prepare your blank azure vm for development
 
 1. Open Internet Explorer (does not work on Chrome) and paste the following URL: 
