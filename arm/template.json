@@ -324,5 +324,23 @@
                 "[resourceId('Microsoft.Web/serverfarms', variables('serverfarms_funcplan_name'))]"
             ]
         }     
-    ]
+    ],
+    "outputs": {
+        "INSTRUMENTATIONKEY" : {
+            "type" : "string",
+            "value": "[reference(concat('microsoft.insights/components/', variables('components_botinsights_name'))).InstrumentationKey]"
+        },
+        "APPINSIGHTS_INSTRUMENTATIONKEY" : {
+            "type" : "string",
+            "value": "[reference(concat('microsoft.insights/components/', variables('components_botinsights_name'))).InstrumentationKey]"
+        },
+        "MONGO_URL" : {
+            "type" : "string",
+            "value": "[reference(concat('microsoft.documentDb/databaseAccounts/', variables('databaseAccounts_botdb_name'))).documentEndpoint]"
+        },
+        "MONGO_KEY" : {
+            "type" : "string",
+            "value": "[listKeys(resourceId('microsoft.documentDb/databaseAccounts', variables('databaseAccounts_botdb_name')), '2015-04-08').primaryMasterKey]"
+        }
+    }
 }

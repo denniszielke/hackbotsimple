@@ -23,6 +23,10 @@ It will deploy the following resources
 - Application Insights
 - Code from github to the WebApp
 
+## Register your bot with Microsoft
+Go to https://dev.botframework.com/bots and create a new bot.
+Give it a name and enter the application insights values from the initial resource deployment
+
 ## Prepare your blank azure vm for development
 
 1. Open Internet Explorer (does not work on Chrome) and paste the following URL: 
@@ -32,4 +36,12 @@ http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/denniszie
 2. Click Run on the security warning. 
 3. Click Run again when prompted. 
 4. This will take about 5 minutes and does the setup of prerequired software: Visual Studio Code, NodeJs, Git, Google Chrome, Fiddler4
-5. Download the bot framework emulator from https://emulator.botframework.com/ 
+
+## Set the environment variables for local dev test
+1. Download the bot framework emulator from https://emulator.botframework.com/ 
+2. Create an .env file by renaming the .env_template file and fill in the variables from the arm template deployment output
+
+## Run the bot locally
+1. Run npm install to install the dependencies
+2. Run the bot in debug mode in VSCode
+3. Connect the bot emulator to your instance running on localhost (appid and apppassword have to be empty for localhost)
