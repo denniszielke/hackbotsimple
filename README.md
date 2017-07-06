@@ -11,6 +11,13 @@ This sample shows you how to deploy a simple bot hosted on Azure Websites.
 
 For a complete end-to-end walk-through of creating this application, please refer to the [Bot Builder SDK for Node.js](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-overview)
 
+## Register your bot with Microsoft
+Go to https://dev.botframework.com/bots and create a new bot.
+Remember the app id and app password to enter it in the next step.
+Make up a unique deployment name (best would be your initials and a two digit number).
+The messaging endpoint will be https://{deployment_name}botweb.azurewebsites.net/api/messages
+You can fill in the other values later.
+
 ## Deploying this sample
 1. Deploy the arm template in arm/template.json to azure
 
